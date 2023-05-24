@@ -6,6 +6,7 @@ import CanvasLoader from "../Canvas/CanvasLoader";
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
+  const earth = useGLTF("./earth/scene.gltf");
 
   return (
     <mesh>
@@ -20,8 +21,8 @@ const Computers = ({ isMobile }) => {
       />
       <pointLight intensity={1} />
       <primitive
-        object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
+        object={earth.scene}
+        scale={isMobile ? 0.7 : 2.75}
         position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
