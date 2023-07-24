@@ -76,7 +76,7 @@ Feel free to reach out to me via email at abhishek.r@example.com or through my s
 
       <p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] w-full leading-[30px] md:whitespace-pre-line whitespace-normal"
+        className="mt-4 text-secondary text-[17px] w-full leading-[30px] whitespace-pre-line "
       >
         {introText}
       </p>
