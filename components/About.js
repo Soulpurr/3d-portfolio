@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className="xs:w-[250px] w-full">
-    <motion.div
+    <div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
       className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
     >
@@ -22,17 +22,17 @@ const ServiceCard = ({ index, title, icon }) => (
         }}
         className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
       >
-        <img
+        <Image
           src={icon}
           alt="web-development"
-          className="w-16 h-16 object-contain"
+          width={64} // Set the width of the image
+          height={64} // Set the height of the image
         />
-
         <h3 className="text-white text-[20px] font-bold text-center">
           {title}
         </h3>
       </div>
-    </motion.div>
+    </div>
   </Tilt>
 );
 
@@ -46,9 +46,7 @@ I love exploring the possibilities that modern web development offers. React.js,
 
 I'm well-versed in a wide range of programming languages including C++, Java, C, JavaScript, and Python. These languages have enabled me to tackle diverse problem-solving scenarios and create efficient and robust solutions.
 
-
-`;
-  const intro2 = `💡 Always Learning:
+💡 Always Learning:
 
 Continuous learning is the heartbeat of my journey. Whether it's staying up-to-date with the latest advancements in technology or delving into new frameworks and libraries, I strive to stay at the cutting edge of software development.
 
@@ -66,27 +64,22 @@ I'm thrilled to connect with fellow developers, tech enthusiasts, and industry p
 
 📩 Reach Out:
 
-Feel free to reach out to me via email at abhishek.r@example.com or through my social media profiles linked below. I'm excited to be part of the ever-evolving world of technology, and I can't wait to embark on new adventures with you!`;
+Feel free to reach out to me via email at abhishek.r@example.com or through my social media profiles linked below. I'm excited to be part of the ever-evolving world of technology, and I can't wait to embark on new adventures with you!
+`;
 
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
+      </div>
 
-      <motion.p
+      <p
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] w-full leading-[30px] md:whitespace-pre-line whitespace-normal"
       >
         {introText}
-      </motion.p>
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] w-full leading-[30px] whitespace-pre-line"
-      >
-        {intro2}
-      </motion.p>
+      </p>
 
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (
