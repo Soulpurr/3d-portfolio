@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
@@ -22,11 +22,10 @@ const ServiceCard = ({ index, title, icon }) => (
         }}
         className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
       >
-        <Image
+        <img
           src={icon}
           alt="web-development"
-          width={64} // Set the width of the image
-          height={64} // Set the height of the image
+          className="w-16 h-16 object-contain"
         />
 
         <h3 className="text-white text-[20px] font-bold text-center">
@@ -38,7 +37,6 @@ const ServiceCard = ({ index, title, icon }) => (
 );
 
 const About = () => {
-  const [intro, setintro] = useState("");
   const introText = `
 🚀 Tech Enthusiast:
 
@@ -48,7 +46,9 @@ I love exploring the possibilities that modern web development offers. React.js,
 
 I'm well-versed in a wide range of programming languages including C++, Java, C, JavaScript, and Python. These languages have enabled me to tackle diverse problem-solving scenarios and create efficient and robust solutions.
 
-💡 Always Learning:
+
+`;
+  const intro2 = `💡 Always Learning:
 
 Continuous learning is the heartbeat of my journey. Whether it's staying up-to-date with the latest advancements in technology or delving into new frameworks and libraries, I strive to stay at the cutting edge of software development.
 
@@ -66,11 +66,7 @@ I'm thrilled to connect with fellow developers, tech enthusiasts, and industry p
 
 📩 Reach Out:
 
-Feel free to reach out to me via email at abhipoke@gmail.com or through my social media profiles linked below. I'm excited to be part of the ever-evolving world of technology, and I can't wait to embark on new adventures with you!
-`;
-  useEffect(() => {
-    setintro(introText);
-  }, []);
+Feel free to reach out to me via email at abhishek.r@example.com or through my social media profiles linked below. I'm excited to be part of the ever-evolving world of technology, and I can't wait to embark on new adventures with you!`;
 
   return (
     <>
@@ -83,14 +79,16 @@ Feel free to reach out to me via email at abhipoke@gmail.com or through my socia
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] w-full leading-[30px] md:whitespace-pre-line whitespace-normal"
       >
-        Im a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. Im a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems.Lets work together to bring your ideas to life!
+        {introText}
+      </motion.p>
+      <motion.p
+        variants={fadeIn("", "", 0.1, 1)}
+        className="mt-4 text-secondary text-[17px] w-full leading-[30px] whitespace-pre-line"
+      >
+        {intro2}
       </motion.p>
 
-      <div className="mt-20 flex flex-wrap justify-center gap-10">
+      <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
