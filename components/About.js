@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
@@ -22,11 +22,13 @@ const ServiceCard = ({ index, title, icon }) => (
         }}
         className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
       >
-        <Image
+         <Image
           src={icon}
           alt="web-development"
-          className="w-16 h-16 object-contain"
+          width={64} // Set the width of the image
+          height={64} // Set the height of the image
         />
+
 
         <h3 className="text-white text-[20px] font-bold text-center">
           {title}
@@ -64,7 +66,7 @@ I'm thrilled to connect with fellow developers, tech enthusiasts, and industry p
 
 📩 Reach Out:
 
-Feel free to reach out to me via email at abhishek.r@example.com or through my social media profiles linked below. I'm excited to be part of the ever-evolving world of technology, and I can't wait to embark on new adventures with you!
+Feel free to reach out to me via email at abhipoke@gmail.com or through my social media profiles linked below. I'm excited to be part of the ever-evolving world of technology, and I can't wait to embark on new adventures with you!
 `;
 
   return (
@@ -74,15 +76,14 @@ Feel free to reach out to me via email at abhishek.r@example.com or through my s
         <h2 className={styles.sectionHeadText}>Overview.</h2>
       </motion.div>
 
-      {/* Wrap the introText within a 'pre' tag or use 'white-space: pre-line' */}
-      <motion.pre
+      <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 font-bold text-secondary text-[17px] w-full leading-[30px] whitespace-pre-line"
+        className="mt-4 text-secondary text-[17px] w-full leading-[30px] md:whitespace-pre-line whitespace-normal"
       >
         {introText}
-      </motion.pre>
+      </motion.p>
 
-      <div className="mt-20 flex flex-wrap gap-10 justify-center">
+      <div className="mt-20 flex flex-wrap justify-center gap-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
