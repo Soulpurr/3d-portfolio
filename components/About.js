@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
@@ -22,13 +22,12 @@ const ServiceCard = ({ index, title, icon }) => (
         }}
         className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
       >
-         <Image
+        <Image
           src={icon}
           alt="web-development"
           width={64} // Set the width of the image
           height={64} // Set the height of the image
         />
-
 
         <h3 className="text-white text-[20px] font-bold text-center">
           {title}
@@ -39,6 +38,7 @@ const ServiceCard = ({ index, title, icon }) => (
 );
 
 const About = () => {
+  const [intro, setintro] = useState("");
   const introText = `
 🚀 Tech Enthusiast:
 
@@ -68,6 +68,9 @@ I'm thrilled to connect with fellow developers, tech enthusiasts, and industry p
 
 Feel free to reach out to me via email at abhipoke@gmail.com or through my social media profiles linked below. I'm excited to be part of the ever-evolving world of technology, and I can't wait to embark on new adventures with you!
 `;
+  useEffect(() => {
+    setintro(introText);
+  }, []);
 
   return (
     <>
@@ -80,7 +83,11 @@ Feel free to reach out to me via email at abhipoke@gmail.com or through my socia
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] w-full leading-[30px] md:whitespace-pre-line whitespace-normal"
       >
-        {introText}
+        Im a skilled software developer with experience in TypeScript and
+        JavaScript, and expertise in frameworks like React, Node.js, and
+        Three.js. Im a quick learner and collaborate closely with clients to
+        create efficient, scalable, and user-friendly solutions that solve
+        real-world problems.Lets work together to bring your ideas to life!
       </motion.p>
 
       <div className="mt-20 flex flex-wrap justify-center gap-10">
